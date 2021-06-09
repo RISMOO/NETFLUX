@@ -2,6 +2,5 @@
 
 
 
-
-$db = new PDO ('mysql:host=localhost;dbname=netflix;charset=utf8', 'root', '');
+$db = new PDO ('mysql:host=rismofrikxnetfli.mysql.db;dbname=rismofrikxnetfli;charset=utf8','rismofrikxnetfli','281014180217noemieS');
 ?>
