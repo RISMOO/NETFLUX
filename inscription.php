@@ -1,7 +1,24 @@
 
 <?php
+require ('recaptcha/autoload.php');
+if(isset($_POST['submitpost'])){ 
+if(isset($_POST['g-recaptcha-response'])){
 
 
+$recaptcha=new \ReCaptcha\ReCaptcha('6LeAwyAbAAAAAPkVWvloQSCU1Q-p_9bZsHpbFxBC');
+$resp=$recaptcha->verify($_POST['g-recaptcha-response']);
+if($resp->isSuccess()){
+var_dump('Captcha valide');
+
+}else{
+	$errors=$resp->getErrorCodes();
+	var_dump("captcha invalide");
+	var_dump($errors);
+}
+}else {
+var_dump("captcha nom rempli");
+}
+}
 session_start();
 require('src/log.php');
 
@@ -68,6 +85,7 @@ exit();
 <html>
 <head>
 	<meta charset="utf-8">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<title>Netflix</title>
 	<link rel="stylesheet" type="text/css" href="design/default.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -98,10 +116,12 @@ exit();
 ?>
 	
 			<form method="post" action="inscription.php">
+			<div class="g-recaptcha m-4" data-sitekey="6LeAwyAbAAAAAOh2J_zf1bJOiwh8JnjZP9nRkMl_"></div>
 				<input type="email" name="email" placeholder="Votre adresse email" required />
 				<input type="password" name="password" placeholder="Mot de passe" required />
 				<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
-				<button type="submit">S'inscrire</button>
+				
+				<button type="submit" value="valider" name="submitpost">S'inscrire</button>
 			</form>
 
 			<p class="grey m-2">Déjà sur Netflix ? <a href="index.php">Connectez-vous</a>.</p>
