@@ -5,19 +5,18 @@ if(isset($_POST['submitpost'])){
 if(isset($_POST['g-recaptcha-response'])){
 
 
-$recaptcha=new \ReCaptcha\ReCaptcha('6LeAwyAbAAAAAPkVWvloQSCU1Q-p_9bZsHpbFxBC');
+$recaptcha=new \ReCaptcha\ReCaptcha('6LfgiiEbAAAAAGLv-tZMeFJEuHq_ZD5UZoUIFg7i');
 $resp=$recaptcha->verify($_POST['g-recaptcha-response']);
-if($resp->isSuccess()){
-var_dump('Captcha valide');
+if(!$resp->isSuccess()){
 
-}else{
-	$errors=$resp->getErrorCodes();
-	var_dump("captcha invalide");
-	var_dump($errors);
+
+header('location:inscription.php?error=1&message=Captcha non valide.');
+	exit();
+
+
 }
-}else {
-var_dump("captcha nom rempli");
 }
+
 }
 session_start();
 require('src/log.php');
@@ -116,7 +115,7 @@ exit();
 ?>
 	
 			<form method="post" action="inscription.php">
-			<div class="g-recaptcha m-4" data-sitekey="6LeAwyAbAAAAAOh2J_zf1bJOiwh8JnjZP9nRkMl_"></div>
+			<div class="g-recaptcha m-4" data-sitekey="6LfgiiEbAAAAAEoEHusnHdOGaE0JD0kYMbSBrzy2"></div>
 				<input type="email" name="email" placeholder="Votre adresse email" required />
 				<input type="password" name="password" placeholder="Mot de passe" required />
 				<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
