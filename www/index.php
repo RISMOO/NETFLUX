@@ -1,6 +1,6 @@
 <?php
 
-require('recaptcha');
+
 
 session_start();
 require('src/log.php');
@@ -120,11 +120,8 @@ if ($_GET['message'] == 'Vous avez été déconnecté')
 					<form id="myform"method="post" action="index.php">
 						<input type="email" name="email" placeholder="Votre adresse email" required />
 						<input type="password" name="password" placeholder="Mot de passe" required />
-					<!--	<button type="submit">S'identifier</button>-->
-						<button class="g-recaptcha" 
-        data-sitekey="<?PHP echo SITE_NETFLIX ?> " 
-        data-callback='onSubmit' 
-        data-action='submit'>Submit</button>
+						<button type="submit">S'identifier</button>
+					
 
 						<label id="option"><input type="checkbox" name="auto" checked class="m-2" />Se souvenir de moi</label>
 					</form>
@@ -138,11 +135,6 @@ if ($_GET['message'] == 'Vous avez été déconnecté')
 	<?php include('src/footer.php'); ?>
 
 
-	<script>
-   function onSubmit(token) {
-     document.getElementById("myform").submit();
-   }
- </script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 
 <?php
-require('recaptcha');
+
 
 session_start();
 require('src/log.php');
@@ -93,13 +93,7 @@ exit();
  echo '<div class="alert success">Votre inscription à bien été prise en compte .<a href="index.php">Se connecter</a></div>';
 
  }
-if (check_token($_POST['g-racaptacha-response'],SITE_NETFLIX)){
 
-	echo "je traite";
-}else{
-
-	echo "je ne traite pas";
-}
 
 ?>
 	
