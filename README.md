@@ -5,7 +5,7 @@
  
 
 
-![netflux](https://rismo.fr/apps/netflux/)
+[![rismo.fr](https://rismo.fr/aps/netflux/img/netflux.webp)](https://rismo.fr/apps/netflux)
 
 ---
 ## En savoir plus !
