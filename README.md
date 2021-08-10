@@ -5,7 +5,7 @@
  
 
 
-![netflix](https://rismo.fr/img/netflix.png)
+![netflix](https://rismo.fr/img/netflux.png)
 
 ---
 ## En savoir plus !
