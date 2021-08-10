@@ -5,7 +5,7 @@
  
 
 
-![netflix](https://rismo.fr/apps/img/netflux.webp)
+![netflix](https://rismo.fr/apps/netflux/)
 
 ---
 ## En savoir plus !
